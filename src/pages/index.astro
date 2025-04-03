@@ -4,42 +4,56 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug"
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection("projects")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hello, all 👋</div>
-    <div class="text-5xl font-bold">I'm Juwon Um</div>
-    <div class="py-2">
-      <text class="text-lg">
-        I'm currently a Master's Student at the HCIS Lab of Gwangju Institude of Science of Technology (GIST) in Korea. My main areas of interest in Human-Computer Interaction (HCI) research, specifically Virtual Reality. If you want detailed information about me, just click on my CV, and if you have any questions about me or the projects
-I have worked on, feel free to contact me anytime via email at juwon.um@gm.gist.ac.kr :)
-      </text>
-    </div>
-  </div>
+  <section class="flex flex-col gap-6">
+    <div>
+      <p class="mb-2">Hello, all 👋</p>
+      <h1 class="text-4xl font-bold mb-4 inline-block border-b-4 border-primary">I'm Juwon Um</h1>
 
-  <div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-start gap-8">
+      <div class="flex-1 text-lg leading-relaxed">
+        <p>
+          I'm currently a Master's Student at the HCIS Lab of Gwangju Institute of Science and Technology (GIST) in Korea.
+          My main areas of interest in Human-Computer Interaction (HCI) research, specifically Virtual Reality.
+          If you want detailed information about me, just click on my CV, and if you have any questions about me or the projects I have worked on,
+          feel free to contact me anytime via email at juwon.um@gm.gist.ac.kr :)
+        </p>
+      </div>
+
+      <div class="flex-shrink-0">
+        <img src="/profile.webp" alt="Juwon Um" class="w-50 h-60 object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <div class="mt-10">
     <div class="text-3xl w-full font-bold mb-2">Selected Publications</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    title="TeleHopper: Simulating a Jumping Sensation as Proprioceptive Feedback for Teleportation in Virtual Reality via Electrical Muscle Stimulation"
+    img="/TeleHopper.webp"
+    desc="<u>Juwon Um</u>, Bocheon Gim, Seongjun Kang, Yumin Kang, Eunki Jeon, and SeungJun Kim"
     url="#"
     badge="NEW"
+    extra="CHI EA 2025: Extended Abstracts of the CHI Conference on Human Factors in Computing Systems, 2025"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    title="LegSense: Inducing Walking Sensation in Seated VR by Providing Movement Illusion via Electrical Muscle Stimulation "
+    img="/LegSense.webp"
+    desc="<u>Juwon Um</u>, Eunki Jeon, Yumin Kang, Seongjun Kang, Ahmed Elsharkawy, Joseph DelPreto, Wojciech Matusik, Daniela Rus, and SeungJun Kim"
     url="#"
+    extra="Ubicomp Companion 2024: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024"
   />
-  <div class="mt-8">
+  <div class="mt-8 flex justify-end">
       <a class="btn rounded-md" href="/publications"> See more </a>
     </div>
 </BaseLayout>
