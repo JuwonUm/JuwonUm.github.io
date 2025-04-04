@@ -1,0 +1,29 @@
+---
+// ThemeToggle.astro
+---
+
+<button
+  id="theme-toggle"
+  class="mb-4 mx-auto px-4 py-2 bg-yellow-200 dark:bg-gray-700 text-black dark:text-white rounded-lg text-sm font-medium transition"
+>
+  Toggle Theme
+</button>
+
+<script is:client="load">
+  const toggle = document.getElementById("theme-toggle");
+  const html = document.documentElement;
+
+  // 클릭 시 테마 전환
+  toggle?.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme");
+    const next = current === "pastel" ? "dark" : "pastel";
+    html.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
+
+  // 저장된 테마가 있으면 적용
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    html.setAttribute("data-theme", savedTheme);
+  }
+</script>

@@ -15,8 +15,8 @@ const { title, subtitle, logo, description_1, description_2 } = Astro.props;
       {title}
     </h3>
     <span class="text-sm" set:html={subtitle}></span>
-    <p class="font-light text-sm text-gray-600 mt-2" set:html={description_1}></p>
-    <p class="font-light text-sm text-gray-600 mt-2" set:html={description_2}></p>
+    <p class="font-light text-sm text-gray-500 mt-2" set:html={description_1}></p>
+    <p class="font-light text-sm text-gray-500 mt-2" set:html={description_2}></p>
     <p class="my-2 text-justify">
       <slot />
     </p>
