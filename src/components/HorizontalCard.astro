@@ -6,52 +6,41 @@ const badgeColors = {
   NEW: "badge-secondary"
 };
 import { Image } from "astro:assets";
-const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
+const tag_url = typeof url === 'string'
+  ? url.split("/").slice(0, -1).join("/") + "/tag"
+  : "";
 ---
 
-<div
-  class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
->
-  <a href={url} target={target}>
+<div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+  {url && typeof url === "string" ? (
+  <a href={url} target={target} rel="noopener noreferrer" class="block">
     <div class="hero-content flex-col md:flex-row">
-      {
-        img && (
-          <Image
-            src={img}
-            width={750}
-            height={422}
-            format="webp"
-            alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg"
-          />
-        )
-      }
-      <div class="grow w-full">
-        <h1 class="text-xl font-bold">
-          {title}
-          {badges.length > 0 && badges.map((b) => (
-            <div class={`badge mx-2 ${badgeColors[b] || "badge-secondary"}`}>
-            {b}
-            </div>
-          ))}
-        </h1>
-        <p class="py-1 text-1xl" set:html={desc}></p>
-
-        {extra && (
-          <p class="mt-2 text-sm text-gray-600">{extra}</p>
-        )}
-
-        <div class="card-actions justify-end">
-          {
-            tags &&
-              tags.map((tag) => (
-                <a href={`${tag_url}/${tag}`} class="badge badge-outline">
-                  {tag}
-                </a>
-              ))
-          }
+        <img src={img} class="max-w-[160px] rounded-lg shadow-md" alt={title} />
+        <div>
+          <h2 class="text-xl font-bold">{title}</h2>
+          <div class="flex flex-wrap items-center gap-2 my-1">
+            {badges.map((b) => (
+              <div class={`badge mx-1 ${badgeColors[b] || "badge-secondary"}`}>{b}</div>
+            ))}
+          </div>
+          <p class="py-1 text-sm text-gray-500">{extra}</p>
+          <p class="py-1 text-1xl" set:html={desc}></p>
         </div>
       </div>
+    </a>
+  ) : (
+    <div class="hero-content flex-col md:flex-row cursor-default">
+      <img src={img} class="max-w-[160px] rounded-lg shadow-md" alt={title} />
+      <div>
+        <h2 class="text-xl font-bold">{title}</h2>
+        <div class="flex flex-wrap items-center gap-2 my-1">
+          {badges.map((b) => (
+            <div class={`badge mx-1 ${badgeColors[b] || "badge-secondary"}`}>{b}</div>
+          ))}
+        </div>
+        <p class="py-1 text-sm text-gray-500">{extra}</p>
+        <p class="py-1 text-1xl" set:html={desc}></p>
+      </div>
     </div>
-  </a>
+  )}
 </div>

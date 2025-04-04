@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug"
+import TimeLineElement from "../components/cv/TimeLine.astro";
 
 const posts = (await getCollection("projects")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -20,10 +21,21 @@ const last_posts = posts.slice(0, 3);
     <div class="flex flex-col md:flex-row items-start gap-8">
       <div class="flex-1 text-lg leading-relaxed">
         <p>
-          I'm currently a Master's Student at the HCIS Lab of Gwangju Institute of Science and Technology (GIST) in Korea.
+          I'm currently a Master's Student at the 
+          <a href="https://sites.google.com/view/gist-hcis-lab/home?authuser=0" target="_blank" rel="noopener noreferrer" class="underline decoration-primary decoration-2 hover:opacity-80">
+            Human-Centered Intelligent Systems (HCIS) Lab</a>
+          of
+          <a href="https://www.gist.ac.kr/en/main.html" target="_blank" rel="noopener noreferrer" class="underline decoration-primary decoration-2 hover:opacity-80">
+            Gwangju Institute of Science and Technology (GIST)</a>
+          in Korea, advised by
+          <a href="https://scholar.google.com/citations?user=AjfRd6wAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="underline decoration-primary decoration-2 hover:opacity-80">
+            Prof. SeungJun Kim</a>.
           My main areas of interest in Human-Computer Interaction (HCI) research, specifically Virtual Reality.
-          If you want detailed information about me, just click on my CV, and if you have any questions about me or the projects I have worked on,
-          feel free to contact me anytime via email at juwon.um@gm.gist.ac.kr :)
+          If you have any questions about me or the projects I have worked on,
+          feel free to contact me anytime via email at
+          <a href="mailto:juwon.um@gm.gist.ac.kr" class="underline decoration-primary decoration-2 hover:opacity-80">
+            juwon.um@gm.gist.ac.kr
+          </a>
         </p>
       </div>
 
@@ -41,8 +53,8 @@ const last_posts = posts.slice(0, 3);
     title="TeleHopper: Simulating a Jumping Sensation as Proprioceptive Feedback for Teleportation in Virtual Reality via Electrical Muscle Stimulation"
     img="/TeleHopper.webp"
     desc="<u>Juwon Um</u>, Bocheon Gim, Seongjun Kang, Yumin Kang, Eunki Jeon, and SeungJun Kim"
-    url="#"
     badges={["Accepted", "NEW"]}
+    url={null}
     extra="CHI EA 2025: Extended Abstracts of the CHI Conference on Human Factors in Computing Systems, 2025"
   />
   <div class="divider my-0"></div>
@@ -50,10 +62,64 @@ const last_posts = posts.slice(0, 3);
     title="LegSense: Inducing Walking Sensation in Seated VR by Providing Movement Illusion via Electrical Muscle Stimulation "
     img="/LegSense.webp"
     desc="<u>Juwon Um</u>, Eunki Jeon, Yumin Kang, Seongjun Kang, Ahmed Elsharkawy, Joseph DelPreto, Wojciech Matusik, Daniela Rus, and SeungJun Kim"
-    url="#"
+    url="https://doi.org/10.1145/3675094.3678375"
     extra="Ubicomp Companion 2024: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024"
   />
   <div class="mt-8 flex justify-end">
-      <a class="btn rounded-md" href="/publications"> See more </a>
-    </div>
+    <a class="btn rounded-md" href="/publications"> See more </a>
+  </div>
+
+  <!-- CV Section -->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Title Name"
+      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+    />
+    <TimeLineElement
+      title="Title Name"
+      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Job Title at Project or Company Name"
+      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="#" target="_blank"> Certification Name (with link)</a>
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Skill Name</li>
+    <li>Skill Name</li>
+    <li>Skill Name</li>
+    <li>Skill Name</li>
+    <li>Skill Name</li>
+  </ul>
+  </div>
+<!-- CV Section -->
+
 </BaseLayout>
