@@ -15,7 +15,11 @@ const tag_url = typeof url === 'string'
   {url && typeof url === "string" ? (
   <a href={url} target={target} rel="noopener noreferrer" class="block">
     <div class="hero-content flex-col md:flex-row">
-        <img src={img} class="max-w-[160px] rounded-lg shadow-md" alt={title} />
+        <img
+          src={img}
+          class="w-full md:w-[240px] object-cover rounded-lg shadow-md"
+          alt={title}
+        />
         <div>
           <h2 class="text-xl font-bold">{title}</h2>
           <div class="flex flex-wrap items-center gap-2 my-1">
@@ -23,14 +27,18 @@ const tag_url = typeof url === 'string'
               <div class={`badge mx-1 ${badgeColors[b] || "badge-secondary"}`}>{b}</div>
             ))}
           </div>
-          <p class="py-1 text-sm text-gray-500">{extra}</p>
           <p class="py-1 text-1xl" set:html={desc}></p>
+          <p class="py-1 text-sm text-gray-500">{extra}</p>
         </div>
       </div>
     </a>
   ) : (
     <div class="hero-content flex-col md:flex-row cursor-default">
-      <img src={img} class="max-w-[160px] rounded-lg shadow-md" alt={title} />
+      <img
+        src={img}
+        class="w-full md:w-[240px] object-cover rounded-lg shadow-md"
+        alt={title}
+      />
       <div>
         <h2 class="text-xl font-bold">{title}</h2>
         <div class="flex flex-wrap items-center gap-2 my-1">
@@ -38,8 +46,8 @@ const tag_url = typeof url === 'string'
             <div class={`badge mx-1 ${badgeColors[b] || "badge-secondary"}`}>{b}</div>
           ))}
         </div>
-        <p class="py-1 text-sm text-gray-500">{extra}</p>
         <p class="py-1 text-1xl" set:html={desc}></p>
+        <p class="py-1 text-sm text-gray-500">{extra}</p>
       </div>
     </div>
   )}

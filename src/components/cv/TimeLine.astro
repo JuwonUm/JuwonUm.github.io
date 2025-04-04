@@ -1,5 +1,5 @@
 ---
-const { title, subtitle } = Astro.props;
+const { title, subtitle, logo, description_1, description_2 } = Astro.props;
 ---
 
 <div class="flex">
@@ -8,8 +8,15 @@ const { title, subtitle } = Astro.props;
     <span class="education__line bg-primary block h-full w-[2px] translate-x-[7px]"></span>
   </div>
   <div class="experience__data bd-grid px-5">
-    <h3 class="font-semibold mb-1">{title}</h3>
-    <span class="font-light text-sm">{subtitle}</span>
+    <h3 class="font-semibold mb-1 flex items-center gap-2">
+      {logo && (
+        <img src={logo} alt="logo" class="w-5 h-5 rounded-full" />
+      )}
+      {title}
+    </h3>
+    <span class="text-sm" set:html={subtitle}></span>
+    <p class="font-light text-sm text-gray-600 mt-2" set:html={description_1}></p>
+    <p class="font-light text-sm text-gray-600 mt-2" set:html={description_2}></p>
     <p class="my-2 text-justify">
       <slot />
     </p>

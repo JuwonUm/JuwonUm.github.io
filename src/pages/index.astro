@@ -18,7 +18,7 @@ const last_posts = posts.slice(0, 3);
 
     </div>
 
-    <div class="flex flex-col md:flex-row items-start gap-8">
+    <div class="flex flex-row items-start gap-8">
       <div class="flex-1 text-lg leading-relaxed">
         <p>
           I'm currently a Master's Student at the 
@@ -51,9 +51,9 @@ const last_posts = posts.slice(0, 3);
 
   <HorizontalCard
     title="TeleHopper: Simulating a Jumping Sensation as Proprioceptive Feedback for Teleportation in Virtual Reality via Electrical Muscle Stimulation"
-    img="/TeleHopper.webp"
+    img="/telehopper_webp.webp"
     desc="<u>Juwon Um</u>, Bocheon Gim, Seongjun Kang, Yumin Kang, Eunki Jeon, and SeungJun Kim"
-    badges={["Accepted", "NEW"]}
+    badges={["NEW", "1st Author", "Accepted"]}
     url={null}
     extra="CHI EA 2025: Extended Abstracts of the CHI Conference on Human Factors in Computing Systems, 2025"
   />
@@ -62,6 +62,7 @@ const last_posts = posts.slice(0, 3);
     title="LegSense: Inducing Walking Sensation in Seated VR by Providing Movement Illusion via Electrical Muscle Stimulation "
     img="/LegSense.webp"
     desc="<u>Juwon Um</u>, Eunki Jeon, Yumin Kang, Seongjun Kang, Ahmed Elsharkawy, Joseph DelPreto, Wojciech Matusik, Daniela Rus, and SeungJun Kim"
+    badges={["1st Author"]}
     url="https://doi.org/10.1145/3675094.3678375"
     extra="Ubicomp Companion 2024: Companion of the 2024 on ACM International Joint Conference on Pervasive and Ubiquitous Computing, 2024"
   />
@@ -76,12 +77,17 @@ const last_posts = posts.slice(0, 3);
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+      title="Gwangju Institute of Science and Technology (GIST)"
+      logo="/gist_logo.webp"
+      subtitle="<b>Master's student</b> at Intelligent Robotics, Institute of Integrated Technology"
+      description_1="Feb 2024 &mdash; Present"
     />
     <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+      title="Korea University of Technology & Education (Koreatech)"
+      logo="/koreatech_logo.webp"
+      subtitle="<b>Bachelor of Science (B.S.)</b> at School of Computer Science and Engineering"
+      description_1="Mar 2019 &mdash; Feb 2024"
+      description_2="GPA: 4.23 / 4.5, Major GPA: 4.26 / 4.5"
     />
   </div>
 
@@ -91,35 +97,38 @@ const last_posts = posts.slice(0, 3);
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Research intern"
+      logo="/hcislab_logo.webp"
+      subtitle='<a href="https://sites.google.com/view/gist-hcis-lab/home?authuser=0" target="_blank" rel="noopener noreferrer" class="underline decoration-primary decoration-2 hover:opacity-80"><b>Human-Centered Interaction Systems Lab (HCIS Lab)</b></a> at Korea University of Technology & Education'
+      description_1="Lab director: Prof. SeungJun Kim"
+      description_2="2023 Summer, 2024 Winter"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Research intern"
+      logo="/interationlab_logo.webp"
+      subtitle='<a href="https://sites.google.com/view/interaction-lab/" target="_blank" rel="noopener noreferrer" class="underline decoration-primary decoration-2 hover:opacity-80"><b>Interaction Lab</b></a> at Korea University of Technology & Education'
+      description_1="Lab director: Prof. Sang-Youn Kim"
+      description_2="Jul 2021 &mdash; Dec 2022"
+    >
     </TimeLineElement>
   </div>
 
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Certifications</div>
+    <div class="text-3xl w-full font-bold">Honors & Awards </div>
   </div>
 
   <ul class="list-disc mx-6 mb-10 grid gap-2">
     <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
+      <span> <b>Best Demo Award</b> &mdash; VRST 2022 (Dec 2022) </span>
+    </li>
+    <li>
+      <span> <b>Excellent Paper Award</b> &mdash; 2022 Korea Digital Contents Society Summer Academic Conference (Jul 2022) </span>
+    </li>
+    <li>
+      <span> <b>Academic Excellence Scholarship (Awarded for the students with high GPA)</b> &mdash; Korea University of Technology and Education (Dec 2019-2022) </span>
     </li>
   </ul>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Skills</div>
-  </div>
-
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-  </ul>
-  </div>
 <!-- CV Section -->
 
 </BaseLayout>
