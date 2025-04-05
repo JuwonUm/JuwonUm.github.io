@@ -1,29 +1,34 @@
 ---
 // ThemeToggle.astro
+export const prerender = false;
 ---
 
-<button
-  id="theme-toggle"
-  class="mb-4 mx-auto px-4 py-2 bg-yellow-200 dark:bg-gray-700 text-black dark:text-white rounded-lg text-sm font-medium transition"
->
-  Toggle Theme
-</button>
+<div class="flex justify-center my-3">
+  <label class="cursor-pointer flex items-center gap-2">
+    <span class="text-sm">🌞</span>
+    <input id="theme-toggle" type="checkbox" class="toggle toggle-sm" />
+    <span class="text-sm">🌙</span>
+  </label>
+</div>
 
 <script is:client="load">
-  const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
 
-  // 클릭 시 테마 전환
-  toggle?.addEventListener("click", () => {
-    const current = html.getAttribute("data-theme");
-    const next = current === "pastel" ? "dark" : "pastel";
-    html.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  });
+  // ✅ 항상 최신 상태를 참조하도록 연결
+  window.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("theme-toggle");
 
-  // 저장된 테마가 있으면 적용
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
+    if (!toggle) return;
+
+    const savedTheme = localStorage.getItem("theme") || "pastel";
     html.setAttribute("data-theme", savedTheme);
-  }
+    toggle.checked = savedTheme === "pastelDark";
+
+    // ✅ 기존 핸들러 제거 후 재연결 (중복 방지)
+    toggle.onchange = () => {
+      const newTheme = toggle.checked ? "pastelDark" : "pastel";
+      html.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    };
+  });
 </script>
