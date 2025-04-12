@@ -1,10 +1,17 @@
 ---
 const { title, img, desc, url, badges = [], tags, extra, target = "_blank" } = Astro.props;
-const badgeColors = {
-  Accepted: "bg-base-300",
-  Rejected: "bg-red-100 text-red-800",
-  NEW: "badge-secondary"
-};
+const badgeData = {
+  Accepted: {
+    color: "bg-base-300"
+  },
+  New: {
+    color: "bg-yellow-300"
+  },
+  "Best Demo Award":{
+    color: "bg-yellow-400",
+    icon: "/trophy.webp"
+  }
+}
 import { Image } from "astro:assets";
 const tag_url = typeof url === 'string'
   ? url.split("/").slice(0, -1).join("/") + "/tag"
@@ -23,12 +30,18 @@ const tag_url = typeof url === 'string'
         <div>
           <h2 class="text-xl font-bold">{title}</h2>
           <div class="flex flex-wrap items-center gap-2 my-1">
-            {badges.map((b) => (
-              <div class={`badge mx-1 ${badgeColors[b] || "badge-secondary"}`}>{b}</div>
-            ))}
-          </div>
+  {badges.map((b) => {
+  const badge = badgeData[b] || { color: "badge-secondary", icon: null };
+  return (
+    <div class={`badge mx-1 flex items-center gap-1 ${badge.color}`}>
+      {badge.icon && <img src={badge.icon} class="w-4 h-4" alt={`${b} icon`} />}
+      {b}
+    </div>
+  );
+})}
+</div>
           <p class="py-1 text-1xl" set:html={desc}></p>
-          <p class="py-1 text-sm text-gray-500">{extra}</p>
+          <p class="py-1 text-sm text-gray-500" set:html={extra}></p>
         </div>
       </div>
     </a>
@@ -42,12 +55,18 @@ const tag_url = typeof url === 'string'
       <div>
         <h2 class="text-xl font-bold">{title}</h2>
         <div class="flex flex-wrap items-center gap-2 my-1">
-          {badges.map((b) => (
-            <div class={`badge mx-1 ${badgeColors[b] || "badge-secondary"}`}>{b}</div>
-          ))}
+          {badges.map((b) => {
+  const badge = badgeData[b] || { color: "badge-secondary", icon: null };
+  return (
+    <div class={`badge mx-1 flex items-center gap-1 ${badge.color}`}>
+      {badge.icon && <img src={badge.icon} class="w-4 h-4" alt={`${b} icon`} />}
+      {b}
+    </div>
+  );
+})}
         </div>
         <p class="py-1 text-1xl" set:html={desc}></p>
-        <p class="py-1 text-sm text-gray-500">{extra}</p>
+        <p class="py-1 text-sm text-gray-500" set:html={extra}></p>
       </div>
     </div>
   )}
