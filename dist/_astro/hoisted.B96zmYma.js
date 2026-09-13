@@ -1,0 +1,1 @@
+import"./hoisted.BScVxmeO.js";const n=document.getElementById("profile-slides"),d=document.getElementById("profile-prev"),o=document.getElementById("profile-next");if(n&&d&&o){const t=n.children.length;let e=0;const l=()=>{n.style.transform=`translateX(-${e*100}%)`};o.addEventListener("click",()=>{e=(e+1)%t,l()}),d.addEventListener("click",()=>{e=(e-1+t)%t,l()})}
