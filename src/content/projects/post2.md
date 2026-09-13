@@ -1,6 +1,6 @@
 ---
 title: "AR-Based Interactive Game"
-heroImage: "/ar project.webp"
+heroImage: "/pictures/ar project.webp"
 ---
 This project is a game in which the player manages an enemy approaching from the front while completing missions by collecting items through touch-and-drag interactions with objects that are randomly generated on an AR plane. When the user moves their phone to scan the surrounding environment, an AR plane is automatically generated on the floor, and the game begins immediately. As time passes, objects (gift boxes) appear at random positions on the generated AR plane. The player can tap the AR plane to spawn an item (scissors) used to dismantle these objects, then drag the item to break them apart. Once an object is dismantled, an item appears inside, which can be collected by tapping on it. When the player collects a certain number of items, the mission is considered complete.
 

@@ -1,6 +1,6 @@
 ---
 title: "VR sound visualization for accessibility"
-heroImage: "/sound project.webp"
+heroImage: "/pictures/sound project.webp"
 ---
 
 This project aims to explore and propose various designs for visualizing sound within virtual environments to support sound accessibility in VR. Previous studies have attempted to incorporate visual indicators such as text, icons, and arrows into VR content to represent sound properties (e.g., volume, duration). These visualizations have shown the potential to enhance VR experiences for users who are deaf or hard of hearing.

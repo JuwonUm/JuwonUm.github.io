@@ -1,6 +1,6 @@
 ---
 title: "VR multiplayer percussion ensemble with haptic interaction"
-heroImage: "/percussion ensemble.webp"
+heroImage: "/pictures/percussion ensemble.webp"
 ---
 
 The VR multiplayer percussion ensemble with haptic interaction project aims to allow two players to each select a percussion instrument (drum or marimba) and meet in a virtual space to perform together. Users can practice individually on each instrument, and if they wish to play in an ensemble, they can enter a virtual ensemble room and select an available instrument (an instrument already selected by the first player is not available). The player who enters the virtual ensemble room first has the authority to select a song for the performance, and once the second player joins, the chosen song can be played together.
